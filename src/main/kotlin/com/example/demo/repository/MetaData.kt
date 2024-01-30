@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document("swedishflashcardflashcardsetmetadatas")
 data class MetaData(
-    private var flashcardSetName: String,
-    private var categoryList: List<String>,
-    private var wordTypeList: List<String>
+    val flashcardSetName: String,
+    val categoryList: List<String>,
+    val wordTypeList: List<String>
 )

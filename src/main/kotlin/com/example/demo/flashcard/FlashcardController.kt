@@ -2,7 +2,9 @@ package com.example.demo.flashcard
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import java.util.Optional
 
 @RestController
 class FlashcardController(@Autowired val flashcardService: FlashcardService) {
@@ -12,12 +14,13 @@ class FlashcardController(@Autowired val flashcardService: FlashcardService) {
     }
 
     @GetMapping("/ajax/flashcard")
-    fun getFlashcard(): FlashCard {
-        return flashcardService.getFlashcard("hello")
+    fun getFlashcard(@RequestParam word: String, @RequestParam(required = false) wordType: Optional<String>): FlashCard {
+        println("RequestParam $word")
+        return flashcardService.getFlashcard(word)
     }
 
     @GetMapping("/ajax/flashcard-meta-data")
-    fun getMetaData(): MetaData {
+    fun getMetaData(): List<MetaData> {
         return flashcardService.getMetaData()
     }
 }

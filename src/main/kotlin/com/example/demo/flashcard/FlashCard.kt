@@ -10,12 +10,12 @@ data class FlashCard(
         var definition: String,
         var example: String,
 ) {
-    constructor(dbFlashcard: Flashcard) : this(
-            word = dbFlashcard.word,
-            wordType = dbFlashcard.wordType,
-            category = dbFlashcard.category,
-            extraInfo = dbFlashcard.extraInfo.toMutableList(),
-            definition = dbFlashcard.definition,
-            example = dbFlashcard.example
+    constructor(dbFlashcard: Flashcard?) : this(
+            word = dbFlashcard?.word?:"",
+            wordType = dbFlashcard?.wordType?:"",
+            category = dbFlashcard?.category?:"",
+            extraInfo = dbFlashcard?.extraInfo?.toMutableList()?: mutableListOf(),
+            definition = dbFlashcard?.definition?:"",
+            example = dbFlashcard?.example?:""
     )
 }

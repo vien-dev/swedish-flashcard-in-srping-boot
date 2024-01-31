@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.Optional
 
 @RestController
-class FlashcardController(@Autowired val flashcardService: FlashcardService) {
+class FlashcardController(/*@Autowired val flashcardService: FlashcardService*/) {
     @GetMapping("/")
     fun getRoot(): String {
         return "Hello!"
     }
 
+    /*
     @GetMapping("/ajax/flashcards")
     fun getFlashcards(): List<FlashCard> {
         return flashcardService.getFlashcards()
@@ -28,4 +29,6 @@ class FlashcardController(@Autowired val flashcardService: FlashcardService) {
     fun getMetaData(): List<MetaData> {
         return flashcardService.getMetaData()
     }
+
+     */
 }
